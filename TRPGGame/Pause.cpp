@@ -1,0 +1,419 @@
+// Pause.cpp
+
+#include "Pause.h"
+#include "DxLib.h"
+#include "SceneManager.h"
+#include <stdlib.h>
+#include "UIButton.h"
+#include "Init.h"
+#include "ConfirmWindow.h"
+
+bool isPause = false;
+bool showPauseMenu = false;
+bool escEdge;
+
+const int sliderX = 900;
+const int sliderW = 300;
+const int hitH = 30;
+
+bool dragMaster = false;
+bool dragBGM = false;
+bool dragSE = false;
+
+int masterVolume = 255;
+int bgmVolume = 255;
+int seVolume = 255;
+
+SettingsMode settingsMode = SETTINGS_MAIN;
+
+Button closeButton(600, 650, 320, 60);
+Button ExitButton(600, 730, 320, 60);
+Button controlButton(1020, 730, 320, 60);
+Button resetButton(1020, 650, 320, 60);
+Button backButton(1020, 730, 320, 60);
+
+// 設定画面のアップデート
+void UpdateSettings()
+{
+
+	int mx, my;
+	GetMousePoint(&mx, &my);
+
+	bool mouse =
+		(GetMouseInput() & MOUSE_INPUT_LEFT);
+
+	if (showConfirm) {
+		return;
+	}
+
+	if (mouse)
+	{
+		if (!dragMaster &&
+			!dragBGM &&
+			!dragSE)
+		{
+			// MASTER
+			if (mx >= sliderX &&
+				mx <= sliderX + sliderW &&
+				my >= 360 - hitH &&
+				my <= 360 + hitH)
+			{
+				dragMaster = true;
+			}
+
+			// BGM
+			else if (mx >= sliderX &&
+				mx <= sliderX + sliderW &&
+				my >= 440 - hitH &&
+				my <= 440 + hitH)
+			{
+				dragBGM = true;
+			}
+
+			// SE
+			else if (mx >= sliderX &&
+				mx <= sliderX + sliderW &&
+				my >= 520 - hitH &&
+				my <= 520 + hitH)
+			{
+				dragSE = true;
+			}
+		}
+	}
+	else
+	{
+		dragMaster = false;
+		dragBGM = false;
+		dragSE = false;
+	}
+
+	if (dragMaster)
+	{
+		masterVolume =
+			(mx - sliderX) * 255 / sliderW;
+
+		masterVolume =
+			max(0, min(255, masterVolume));
+	}
+
+	if (dragBGM)
+	{
+		bgmVolume =
+			(mx - sliderX) * 255 / sliderW;
+
+		bgmVolume =
+			max(0, min(255, bgmVolume));
+	}
+
+	if (dragSE)
+	{
+		seVolume =
+			(mx - sliderX) * 255 / sliderW;
+
+		seVolume =
+			max(0, min(255, seVolume));
+	}
+
+
+	// MAIN
+	if (settingsMode == SETTINGS_MAIN)
+	{
+
+		if (closeButton.IsClicked() || escEdge)
+		{
+			showPauseMenu = false;
+			isPause = false;
+
+			SaveSettings();
+		}
+
+		if (ExitButton.IsClicked())
+		{
+			SaveSettings();
+
+			showConfirm = true;
+			confirmType = CONFIRM_EXIT;
+		}
+
+		if (controlButton.IsClicked())
+		{
+			settingsMode =
+				SETTINGS_CONTROL;
+		}
+
+		if (resetButton.IsClicked())
+		{
+			masterVolume = 255;
+			bgmVolume = 255;
+			seVolume = 255;
+		}
+	}
+
+	// CONTROL
+
+	else if (settingsMode == SETTINGS_CONTROL)
+	{
+		if (backButton.IsClicked() || IsKeyPressedOnce(KEY_INPUT_ESCAPE))
+		{
+			settingsMode =
+				SETTINGS_MAIN;
+		}
+	}
+}
+// 設定画面の描画
+void DrawSettings()
+{
+	DrawBox(
+		500,
+		200,
+		1420,
+		950,
+		GetColor(0, 0, 0),
+		TRUE);
+
+	DrawBox(
+		500,
+		200,
+		1420,
+		950,
+		GetColor(255, 255, 255),
+		FALSE);
+
+	// タイトル
+	DrawString(
+		700,
+		250,
+		"SETTINGS",
+		GetColor(255, 255, 255));
+
+	// メイン設定
+	if (settingsMode == SETTINGS_MAIN)
+	{
+		// MASTER
+		DrawFormatString(
+			700,
+			340,
+			GetColor(255, 255, 255),
+			"MASTER : %d",
+			masterVolume);
+
+		DrawBox(
+			900,
+			350,
+			1200,
+			370,
+			GetColor(80, 80, 80),
+			TRUE);
+
+		DrawBox(
+			sliderX,
+			350,
+			sliderX + masterVolume * sliderW / 256,
+			370,
+			GetColor(255, 255, 255),
+			TRUE);
+
+		DrawCircle(
+			sliderX + masterVolume * sliderW / 256,
+			360,
+			12,
+			GetColor(255, 255, 255),
+			TRUE);
+
+		// BGM
+		DrawFormatString(
+			700,
+			420,
+			GetColor(255, 255, 255),
+			"BGM : %d",
+			bgmVolume);
+
+		DrawBox(
+			900,
+			430,
+			1200,
+			450,
+			GetColor(80, 80, 80),
+			TRUE);
+
+		DrawBox(
+			sliderX,
+			430,
+			sliderX + bgmVolume * sliderW / 256,
+			450,
+			GetColor(255, 255, 255),
+			TRUE);
+
+		DrawCircle(
+			sliderX + bgmVolume * sliderW / 256,
+			440,
+			12,
+			GetColor(255, 255, 255),
+			TRUE);
+
+		// SE
+		DrawFormatString(
+			700,
+			500,
+			GetColor(255, 255, 255),
+			"SE : %d",
+			seVolume);
+
+		DrawBox(
+			900,
+			510,
+			1200,
+			530,
+			GetColor(80, 80, 80),
+			TRUE);
+
+		DrawBox(
+			sliderX,
+			510,
+			sliderX + seVolume * sliderW / 256,
+			530,
+			GetColor(255, 255, 255),
+			TRUE);
+
+		DrawCircle(
+			sliderX + seVolume * sliderW / 256,
+			520,
+			12,
+			GetColor(255, 255, 255),
+			TRUE);
+
+		// ボタン
+		closeButton.Draw(showConfirm);
+		ExitButton.Draw(showConfirm);
+		controlButton.Draw(showConfirm);
+		resetButton.Draw(showConfirm);
+
+		DrawString(
+			closeButton.x + 70,
+			closeButton.y + 20,
+			"CLOSE",
+			GetColor(255, 255, 255));
+
+		DrawString(
+			ExitButton.x + 50,
+			ExitButton.y + 20,
+			"EXIT GAME",
+			GetColor(255, 255, 255));
+
+		DrawString(
+			controlButton.x + 20,
+			controlButton.y + 20,
+			"CONTROL SETTINGS",
+			GetColor(255, 255, 255));
+
+		DrawString(
+			resetButton.x + 60,
+			resetButton.y + 20,
+			"RESET",
+			GetColor(255, 255, 255));
+	}
+
+	// 操作設定
+	else if (settingsMode == SETTINGS_CONTROL)
+	{
+		DrawString(
+			700,
+			350,
+			"MOVE : WASD",
+			GetColor(255, 255, 255));
+
+		DrawString(
+			700,
+			430,
+			"ATTACK : LEFT CLICK",
+			GetColor(255, 255, 255));
+
+		DrawString(
+			700,
+			510,
+			"PAUSE : ESC",
+			GetColor(255, 255, 255));
+
+		backButton.Draw(false);
+
+		DrawString(
+			backButton.x + 90,
+			backButton.y + 20,
+			"BACK",
+			GetColor(255, 255, 255));
+	}
+}
+// 設定したデータの保存
+void SaveSettings()
+{
+	FILE* fp;
+
+	fopen_s(
+		&fp,
+		"settings.dat",
+		"wb");
+
+	if (!fp)
+	{
+		return;
+	}
+
+	fwrite(
+		&masterVolume,
+		sizeof(int),
+		1,
+		fp);
+
+	fwrite(
+		&bgmVolume,
+		sizeof(int),
+		1,
+		fp);
+
+	fwrite(
+		&seVolume,
+		sizeof(int),
+		1,
+		fp);
+
+	fclose(fp);
+}
+// ゲーム開始時にデータをロード
+void LoadSettings()
+{
+	FILE* fp;
+
+	fopen_s(
+		&fp,
+		"settings.dat",
+		"rb");
+
+	if (!fp)
+	{
+		masterVolume = 255;
+		bgmVolume = 255;
+		seVolume = 255;
+
+		return;
+	}
+
+	fread(
+		&masterVolume,
+		sizeof(int),
+		1,
+		fp);
+
+	fread(
+		&bgmVolume,
+		sizeof(int),
+		1,
+		fp);
+
+	fread(
+		&seVolume,
+		sizeof(int),
+		1,
+		fp);
+
+	fclose(fp);
+}
