@@ -3,6 +3,23 @@
 #include "Init.h"
 #include "UIButton.h"
 
+enum MemoType
+{
+    MEMO_NONE,
+
+    MEMO_PHOSPHORUS,
+    MEMO_FAIRYBOOK,
+    MEMO_DIARY,
+    MEMO_FIREDOC,
+};
+
+struct Memo
+{
+    char title[64];
+    char text[2048];
+    bool unlocked;
+};
+
 extern Button bedButton;
 extern Button deskButton;
 extern Button bookshelfButton;
@@ -19,6 +36,7 @@ extern Button pamButton;
 extern Button fireDocButton;
 extern Button backHallFromStorageButton;
 
+extern bool showMemo;
 
 void InitExploreScene();
 void UpdateExploreScene();

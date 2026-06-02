@@ -76,7 +76,7 @@ void DrawCursor()
 
     double size = 0.05;
 
-    if (isSearchCursor)
+    if (isSearchCursor && !showMemo)
     {
         handle = cursorSearch;
         size = 0.07;

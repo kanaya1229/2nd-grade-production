@@ -42,8 +42,14 @@ void UpdateConfirm()
             GameEnd = true;
             SaveSettings();
             break;
-        }
 
+        case CONFIRM_TITLE:
+
+            SaveGame(currentSlot);
+            SaveSettings();
+            currentScene = SCENE_TITLE;
+            break;
+        }
         showConfirm = false;
 
         confirmType = CONFIRM_NONE;
@@ -97,6 +103,15 @@ void DrawConfirm()
             760,
             430,
             "このゲームを終了しますか？",
+            GetColor(255, 255, 255));
+    }
+
+    if (confirmType == CONFIRM_TITLE)
+    {
+        DrawString(
+            760,
+            430,
+            "このゲームを保存して終了しますか？",
             GetColor(255, 255, 255));
     }
 

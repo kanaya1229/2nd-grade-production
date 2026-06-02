@@ -12,6 +12,8 @@
 #include "Pause.h"
 #include "ExploreScene.h"
 
+#include <time.h>
+
 // ÉÅÉCÉìä÷êî
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
@@ -25,6 +27,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     InitTitleScene();
     InitStoryScene();
     InitExploreScene();
+    srand((unsigned int)time(NULL));
     nameFont = CreateFontToHandle(
         NULL,
         56,

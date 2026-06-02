@@ -7,6 +7,7 @@
 #include "UIButton.h"
 #include "Init.h"
 #include "ConfirmWindow.h"
+#include "SaveData.h"
 
 bool isPause = false;
 bool showPauseMenu = false;
@@ -31,6 +32,14 @@ Button ExitButton(600, 730, 320, 60);
 Button controlButton(1020, 730, 320, 60);
 Button resetButton(1020, 650, 320, 60);
 Button backButton(1020, 730, 320, 60);
+
+bool CanReturnTitle()
+{
+	return currentScene != SCENE_TITLE &&
+		currentScene != SCENE_SAVESELECT &&
+		currentScene != SCENE_STATUS &&
+		currentScene != SCENE_NAME;
+}
 
 // 設定画面のアップデート
 void UpdateSettings()
@@ -127,12 +136,14 @@ void UpdateSettings()
 			SaveSettings();
 		}
 
-		if (ExitButton.IsClicked())
-		{
-			SaveSettings();
 
-			showConfirm = true;
-			confirmType = CONFIRM_EXIT;
+		if (!CanReturnTitle) {
+			if (ExitButton.IsClicked())
+			{
+				showConfirm = true;
+				confirmType = CONFIRM_TITLE;
+
+			}
 		}
 
 		if (controlButton.IsClicked())
@@ -194,7 +205,7 @@ void DrawSettings()
 			700,
 			340,
 			GetColor(255, 255, 255),
-			"MASTER : %d",
+			"マスター : %d",
 			masterVolume);
 
 		DrawBox(
@@ -289,27 +300,27 @@ void DrawSettings()
 		resetButton.Draw(showConfirm);
 
 		DrawString(
-			closeButton.x + 70,
+			closeButton.x + 110,
 			closeButton.y + 20,
-			"CLOSE",
+			"ゲームに戻る",
 			GetColor(255, 255, 255));
 
 		DrawString(
-			ExitButton.x + 50,
+			ExitButton.x + 70,
 			ExitButton.y + 20,
-			"EXIT GAME",
+			"ゲームを保存して終了",
 			GetColor(255, 255, 255));
 
 		DrawString(
-			controlButton.x + 20,
+			controlButton.x + 110,
 			controlButton.y + 20,
-			"CONTROL SETTINGS",
+			"操作設定確認",
 			GetColor(255, 255, 255));
 
 		DrawString(
-			resetButton.x + 60,
+			resetButton.x + 110,
 			resetButton.y + 20,
-			"RESET",
+			"音量リセット",
 			GetColor(255, 255, 255));
 	}
 
@@ -319,19 +330,19 @@ void DrawSettings()
 		DrawString(
 			700,
 			350,
-			"MOVE : WASD",
+			"マウス左クリック：　基本操作（ ボタンや選択 ）",
 			GetColor(255, 255, 255));
 
 		DrawString(
 			700,
 			430,
-			"ATTACK : LEFT CLICK",
+			"TAB：　アイテム欄や情報まとめ",
 			GetColor(255, 255, 255));
 
 		DrawString(
 			700,
 			510,
-			"PAUSE : ESC",
+			"注意：　このゲームはクリックした際にダイスロールが行われます。",
 			GetColor(255, 255, 255));
 
 		backButton.Draw(false);
@@ -339,7 +350,7 @@ void DrawSettings()
 		DrawString(
 			backButton.x + 90,
 			backButton.y + 20,
-			"BACK",
+			"一つ戻る",
 			GetColor(255, 255, 255));
 	}
 }

@@ -7,7 +7,8 @@ enum ConfirmType
 {
     CONFIRM_NONE,
     CONFIRM_DELETE,
-    CONFIRM_EXIT
+    CONFIRM_EXIT,
+    CONFIRM_TITLE
 };
 
 extern bool showConfirm;

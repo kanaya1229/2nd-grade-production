@@ -7,7 +7,7 @@ PlayerData CreateDefaultPlayer()
 	PlayerData p{};
 
 	strcpy_s(p.name, "");
-
+	// ステータスの初期値
 	p.stage = 1;
 	p.hp = 20;
 
@@ -24,9 +24,11 @@ PlayerData CreateDefaultPlayer()
 	p.knw = 2;
 	p.insight = 2;
 
+	// 最大ステータス
 	p.selectStatus = 0;
 	p.remainPoint = 42;
 
+	// 冒頭
 	p.savedStoryIndex = 0;
 	p.storyCleared = false;
 
@@ -36,23 +38,40 @@ PlayerData CreateDefaultPlayer()
 	p.hasMask = false;
 	p.hasHose = false;
 	p.hasPAM = false;
-
+	// ベット
 	p.checkedBed = false;
+	// 机
 	p.checkedDesk = false;
+	p.readDoc1 = false;
+	p.readDoc2 = false;
+	p.readDoc3 = false;
+	p.foundLeftMemo = false;
+	p.deskSearchCount = 0;
+	// 本棚
 	p.checkedBookshelf = false;
-	
-	p.checkedFairyBook = false;
-	p.checkedMask = false;
-	p.checkedHose = false;
+	p.checkedChemBook = false;
+	p.checkedPictureBook = false;
+	p.foundGap = false;
+	p.foundMissingBook = false;
+	p.bookshelfMenu = false;
 
+	p.checkedFairyBook = false;
+	
 	p.checkedDiary = false;
-	p.checkedPam = false;
 	p.checkedFireDoc = false;
 
 	p.checkedLab = false;
 	p.checkedStorage = false;
 
 	p.finalEventStarted = false;
+
+	p.readPhosphorus = false;
+	p.readFairyBook = false;
+	p.readDiary = false;
+	p.readFireDoc = false;
+
+	p.bossDoorReady = false;
+	p.canEnterBossRoom = false;
 
 	p.endingType = 0;
 
