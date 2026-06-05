@@ -4,6 +4,7 @@
 #include "ExploreScene.h"
 #include "UIButton.h"
 #include "SaveData.h"
+#include "Pause.h"
 
 int cursorImage;
 int cursorSearch;
@@ -34,8 +35,8 @@ bool IsAnyHovered()
         case ROOM_LAB:
 
             return
-                fairyBookButton.IsHovered() ||
-                maskButton.IsHovered() ||
+                labDeskButton.IsHovered() ||
+                labShelfButton.IsHovered() ||
                 hoseButton.IsHovered() ||
                 backHallFromLabButton.IsHovered();
 
@@ -76,7 +77,7 @@ void DrawCursor()
 
     double size = 0.05;
 
-    if (isSearchCursor && !showMemo)
+    if (isSearchCursor && !showMemo && !isPause)
     {
         handle = cursorSearch;
         size = 0.07;

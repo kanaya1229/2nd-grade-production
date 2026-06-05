@@ -148,8 +148,10 @@
     <ClCompile Include="StoryScene.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="BattleScene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleScene.h" />
     <ClInclude Include="ConfirmWindow.h" />
     <ClInclude Include="ExploreScene.h" />
     <ClInclude Include="Init.h" />

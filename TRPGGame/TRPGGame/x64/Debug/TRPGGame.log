@@ -1,3 +1,3 @@
-﻿  Pause.cpp
-C:\Users\student\source\repos\TRPGGame\Pause.cpp(140,7): warning C4551: 関数呼び出しに引数リストがありません。
+﻿  ExploreScene.cpp
+C:\Users\student\source\repos\TRPGGame\ExploreScene.cpp(1162,4): warning C4566: ユニバーサル文字名 '\u301C' によって表示されている文字は、現在のコード ページ (932) で表示できません
   TRPGGame.vcxproj -> C:\Users\student\source\repos\TRPGGame\x64\Debug\TRPGGame.exe

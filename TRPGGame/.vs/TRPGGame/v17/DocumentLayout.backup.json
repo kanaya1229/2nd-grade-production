@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\student\\source\\repos\\TRPGGame\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:ExploreScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\NameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:NameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Pause.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,20 +19,48 @@
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:ConfirmWindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:ConfirmWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:ExploreScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SaveData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\BattleScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:BattleScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SaveData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\BattleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:BattleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Init.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Init.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:ConfirmWindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:UIButton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Pause.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -35,52 +71,28 @@
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Init.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\NameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:NameScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Mouse.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Init.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Init.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SaveData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:StoryScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\TitleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:TitleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SaveData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Mouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Status.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Status.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Status.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Status.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:UIButton.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\TitleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:TitleScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:StoryScene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Mouse.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Status.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Status.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -89,10 +101,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\NameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:NameScene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|solutionrelative:Pause.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6323B253-205C-415B-AD26-7418319FC231}|TRPGGame.vcxproj|C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -117,7 +125,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 9,
               "Title": "SaveData.h",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.h",
               "RelativeDocumentMoniker": "SaveData.h",
@@ -131,203 +139,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "TitleScene.cpp",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\TitleScene.cpp",
               "RelativeDocumentMoniker": "TitleScene.cpp",
               "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\TitleScene.cpp",
               "RelativeToolTip": "TitleScene.cpp",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwBoAAAAwAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAwBYAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-18T01:33:27.231Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ExploreScene.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.cpp",
-              "RelativeDocumentMoniker": "ExploreScene.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.cpp",
-              "RelativeToolTip": "ExploreScene.cpp",
-              "ViewState": "AgIAABoCAAAAAAAAAAAjwCQCAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-26T05:20:50.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConfirmWindow.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.cpp",
-              "RelativeDocumentMoniker": "ConfirmWindow.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.cpp",
-              "RelativeToolTip": "ConfirmWindow.cpp",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-19T03:31:51.521Z",
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ConfirmWindow.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.h",
-              "RelativeDocumentMoniker": "ConfirmWindow.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.h",
-              "RelativeToolTip": "ConfirmWindow.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-19T03:31:58.49Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "Pause.cpp",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.cpp",
               "RelativeDocumentMoniker": "Pause.cpp",
               "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.cpp",
               "RelativeToolTip": "Pause.cpp",
-              "ViewState": "AgIAAC4BAAAAAAAAAAAAADkBAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAI0AAAAAAAAAAADwv40AAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-21T01:22:25.516Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAB0AAAAkAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ConfirmWindow.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.cpp",
+              "RelativeDocumentMoniker": "ConfirmWindow.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.cpp",
+              "RelativeToolTip": "ConfirmWindow.cpp",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-18T01:30:25.392Z",
+              "WhenOpened": "2026-05-19T03:31:51.521Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SceneManager.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.h",
-              "RelativeDocumentMoniker": "SceneManager.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.h",
-              "RelativeToolTip": "SceneManager.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-18T01:33:09.521Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ExploreScene.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.h",
-              "RelativeDocumentMoniker": "ExploreScene.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.h",
-              "RelativeToolTip": "ExploreScene.h",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACYAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-26T05:20:57.17Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Init.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.h",
-              "RelativeDocumentMoniker": "Init.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.h",
-              "RelativeToolTip": "Init.h",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAABcAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-18T05:07:58.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 1,
               "Title": "NameScene.cpp",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\NameScene.cpp",
               "RelativeDocumentMoniker": "NameScene.cpp",
               "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\NameScene.cpp",
               "RelativeToolTip": "NameScene.cpp",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAABsAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2026-05-19T01:33:06.94Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Mouse.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.cpp",
-              "RelativeDocumentMoniker": "Mouse.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.cpp",
-              "RelativeToolTip": "Mouse.cpp",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAAAE8AAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ExploreScene.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.cpp",
+              "RelativeDocumentMoniker": "ExploreScene.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.cpp",
+              "RelativeToolTip": "ExploreScene.cpp",
+              "ViewState": "AgIAALYDAAAAAAAAAAAAwMIDAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-18T03:13:11.679Z",
+              "WhenOpened": "2026-05-26T05:20:50.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Init.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.cpp",
-              "RelativeDocumentMoniker": "Init.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.cpp",
-              "RelativeToolTip": "Init.cpp",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEkAAAAEAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAAAGIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-20T03:19:26.988Z",
+              "WhenOpened": "2026-05-18T01:30:25.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "SaveData.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.cpp",
-              "RelativeDocumentMoniker": "SaveData.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.cpp",
-              "RelativeToolTip": "SaveData.cpp",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAO0AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-18T01:48:21.82Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "StoryScene.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.cpp",
-              "RelativeDocumentMoniker": "StoryScene.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.cpp",
-              "RelativeToolTip": "StoryScene.cpp",
-              "ViewState": "AgIAAIgAAAAAAAAAAAAAAD8AAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-20T02:22:18.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Mouse.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.h",
-              "RelativeDocumentMoniker": "Mouse.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.h",
-              "RelativeToolTip": "Mouse.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-18T03:13:21.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 4,
               "Title": "SceneManager.cpp",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.cpp",
               "RelativeDocumentMoniker": "SceneManager.cpp",
@@ -340,16 +230,144 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Status.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Status.h",
-              "RelativeDocumentMoniker": "Status.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Status.h",
-              "RelativeToolTip": "Status.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-19T00:21:57.568Z",
+              "DocumentIndex": 5,
+              "Title": "SaveData.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.cpp",
+              "RelativeDocumentMoniker": "SaveData.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\SaveData.cpp",
+              "RelativeToolTip": "SaveData.cpp",
+              "ViewState": "AgIAAO0AAAAAAAAAAAAAAO0AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-18T01:48:21.82Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SceneManager.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.h",
+              "RelativeDocumentMoniker": "SceneManager.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\SceneManager.h",
+              "RelativeToolTip": "SceneManager.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-18T01:33:09.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BattleScene.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\BattleScene.h",
+              "RelativeDocumentMoniker": "BattleScene.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\BattleScene.h",
+              "RelativeToolTip": "BattleScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-05T01:46:53.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BattleScene.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\BattleScene.cpp",
+              "RelativeDocumentMoniker": "BattleScene.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\BattleScene.cpp",
+              "RelativeToolTip": "BattleScene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-05T01:46:25.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Init.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.cpp",
+              "RelativeDocumentMoniker": "Init.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.cpp",
+              "RelativeToolTip": "Init.cpp",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAAAEAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-20T03:19:26.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ConfirmWindow.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.h",
+              "RelativeDocumentMoniker": "ConfirmWindow.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ConfirmWindow.h",
+              "RelativeToolTip": "ConfirmWindow.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-19T03:31:58.49Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UIButton.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.cpp",
+              "RelativeDocumentMoniker": "UIButton.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.cpp",
+              "RelativeToolTip": "UIButton.cpp",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAAAEkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-18T01:36:37.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ExploreScene.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.h",
+              "RelativeDocumentMoniker": "ExploreScene.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\ExploreScene.h",
+              "RelativeToolTip": "ExploreScene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-26T05:20:57.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Init.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.h",
+              "RelativeDocumentMoniker": "Init.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Init.h",
+              "RelativeToolTip": "Init.h",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAgwEMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-18T05:07:58.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Pause.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.h",
+              "RelativeDocumentMoniker": "Pause.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.h",
+              "RelativeToolTip": "Pause.h",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-21T01:22:52.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Mouse.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.cpp",
+              "RelativeDocumentMoniker": "Mouse.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.cpp",
+              "RelativeToolTip": "Mouse.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-18T03:13:11.679Z"
             },
             {
               "$type": "Document",
@@ -361,24 +379,47 @@
               "RelativeToolTip": "Status.cpp",
               "ViewState": "AgIAAJwAAAAAAAAAAAAAAJwAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-19T00:21:49.284Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "UIButton.cpp",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.cpp",
-              "RelativeDocumentMoniker": "UIButton.cpp",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.cpp",
-              "RelativeToolTip": "UIButton.cpp",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAUwEkAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-05-18T01:36:37.922Z"
+              "WhenOpened": "2026-05-19T00:21:49.284Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "StoryScene.cpp",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.cpp",
+              "RelativeDocumentMoniker": "StoryScene.cpp",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.cpp",
+              "RelativeToolTip": "StoryScene.cpp",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-20T02:22:18.635Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Mouse.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.h",
+              "RelativeDocumentMoniker": "Mouse.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Mouse.h",
+              "RelativeToolTip": "Mouse.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-18T03:13:21.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Status.h",
+              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Status.h",
+              "RelativeDocumentMoniker": "Status.h",
+              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Status.h",
+              "RelativeToolTip": "Status.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-19T00:21:57.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
               "Title": "StoryScene.h",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\StoryScene.h",
               "RelativeDocumentMoniker": "StoryScene.h",
@@ -390,7 +431,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "NameScene.h",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\NameScene.h",
               "RelativeDocumentMoniker": "NameScene.h",
@@ -402,19 +443,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "Pause.h",
-              "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.h",
-              "RelativeDocumentMoniker": "Pause.h",
-              "ToolTip": "C:\\Users\\student\\source\\repos\\TRPGGame\\Pause.h",
-              "RelativeToolTip": "Pause.h",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-05-21T01:22:52.124Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "UIButton.h",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\UIButton.h",
               "RelativeDocumentMoniker": "UIButton.h",
@@ -426,7 +455,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "TitleScene.h",
               "DocumentMoniker": "C:\\Users\\student\\source\\repos\\TRPGGame\\TitleScene.h",
               "RelativeDocumentMoniker": "TitleScene.h",
@@ -438,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "strlen.asm",
               "DocumentMoniker": "C:\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\string\\amd64\\strlen.asm",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Source\\10.0.22621.0\\ucrt\\string\\amd64\\strlen.asm",

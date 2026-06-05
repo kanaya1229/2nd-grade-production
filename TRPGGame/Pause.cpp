@@ -136,14 +136,10 @@ void UpdateSettings()
 			SaveSettings();
 		}
 
-
-		if (!CanReturnTitle) {
-			if (ExitButton.IsClicked())
-			{
-				showConfirm = true;
-				confirmType = CONFIRM_TITLE;
-
-			}
+		if (ExitButton.IsClicked())
+		{
+			showConfirm = true;
+			confirmType = CONFIRM_TITLE;
 		}
 
 		if (controlButton.IsClicked())

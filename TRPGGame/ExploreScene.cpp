@@ -4,7 +4,9 @@
 #include "UIButton.h"
 #include < stdlib.h >
 #include "SceneManager.h"
+#include "Pause.h"
 
+/// 寝室
 // ベッド
 Button bedButton(
 	520, 520,
@@ -36,7 +38,7 @@ Button closeBookshelfButton(
 Button doorButton(
 	0, 400,
 	220, 520);
-
+/// 廊下
 // 左のドア（研究室）
 Button labDoorButton(
 	1420, 300,
@@ -51,14 +53,26 @@ Button storageDoorButton(
 Button noteButton(
 	1050, 400,
 	160, 300);
-
-// 左下の本
-Button fairyBookButton(
-	260, 650,
+/// 研究所
+// 記録
+Button NoteBookButton(
+	500, 650,
 	260, 180);
+// 机
+Button labDeskButton(
+	340, 540,
+	450, 200);
+// 絵本
+Button matchBookButton(
+	260, 550,
+	260, 180);
+// 戻る
+Button DeskbackButton(
+	750, 500,
+	400, 200);
 
 // 右棚の防毒マスク
-Button maskButton(
+Button labShelfButton(
 	1410, 120,
 	300, 260);
 
@@ -91,6 +105,42 @@ Button fireDocButton(
 Button backHallFromStorageButton(
 	760, 900,
 	400, 120);
+
+Button memoBackButton(
+	1250, 820,
+	180, 60);
+
+Button memoDoc1Button(
+	320, 300,
+	500, 30);
+
+Button memoDoc2Button(
+	320, 340,
+	500, 30);
+
+Button memoDoc3Button(
+	320, 380,
+	500, 30);
+
+Button memoBookButton(
+	320, 420,
+	500, 30);
+
+Button memoObserveNoteButton(
+	320, 460,
+	500, 30);
+
+Button memoCopyPaperButton(
+	320, 500,
+	500, 30);
+
+Button memoLetterButton(
+	320, 540,
+	500, 30);
+
+Button memoFireDocButton(
+	320, 580,
+	500, 30);
 
 const char* roomName[] =
 {
@@ -130,9 +180,9 @@ bool IsAllExploreFinished()
 		player.checkedBed &&
 		player.checkedDesk &&
 		player.checkedBookshelf &&
-		player.checkedFairyBook &&
+		player.labcheckeddeskall &&
 		player.hasMask &&
-		player.hasHose &&
+		player.checkedSink &&
 		player.checkedDiary &&
 		player.hasPAM &&
 		player.checkedFireDoc;
@@ -159,7 +209,7 @@ void DamagePlayer(int damage)
 void ChangeRoom(RoomType room, const char* text)
 {
 	int damage = RollDice(2);
-	
+
 	DamagePlayer(damage);
 
 	player.currentRoom = room;
@@ -179,9 +229,9 @@ void InitExploreScene()
 	player.currentRoom = ROOM_FIRST;
 
 	strcpy_s(message,
-		"服が濡れているな。\n"
+		"目が覚めた。\n"
 		"妙に息が苦しいような気がする....\n"
-		"記憶の最後に持っていたものがすべてなくなっているな。");
+		"探索をしに行こう。");
 
 	roomBG[ROOM_FIRST] = LoadGraph("Image\\firstroom.png");
 	roomBG[ROOM_HALL] = LoadGraph("Image\\hall.png");
@@ -259,7 +309,6 @@ void Update_FirstRoom()
 
 				if (success)
 				{
-					player.foundLeftMemo = true;
 
 					sprintf_s(message,
 						"洞察判定\n"
@@ -278,7 +327,7 @@ void Update_FirstRoom()
 						"特に気になるものはなかった。",
 						LastDice);
 				}
-
+				player.foundLeftMemo = true;
 				return;
 			}
 
@@ -299,18 +348,31 @@ void Update_FirstRoom()
 
 				int n = 3 - player.deskSearchCount;
 
-				if (n < 0) n = 0;
+				if (n < 0) {
+					n = 0;
+					sprintf_s(temp,
+						"知識判定\n"
+						"D6 → %d\n\n"
+						"失敗...\n"
+						"有用な資料は見つからなかった。\n"
+						"まだ何かあるようだ。調べてみよう \n\n"
+						"残り調査回数:%d",
+						LastDice,
+						n);
 
-				sprintf_s(temp,
-					"知識判定\n"
-					"D6 → %d\n\n"
-					"失敗...\n"
-					"有用な資料は見つからなかった。\n\n"
-					"残り調査回数:%d",
-					LastDice,
-					n);
+				}
+				else {
+					sprintf_s(temp,
+						"知識判定\n"
+						"D6 → %d\n\n"
+						"失敗...\n"
+						"有用な資料は見つからなかった。\n\n"
+						"残り調査回数:%d",
+						LastDice,
+						n);
 
-				strcpy_s(message, temp);
+					strcpy_s(message, temp);
+				}
 			}
 			else
 			{
@@ -363,8 +425,6 @@ void Update_FirstRoom()
 
 			if (SkillCheck(player.knw))
 			{
-				player.readPhosphorus = true;
-
 				sprintf_s(message,
 					"知識判定\n"
 					"D6 → %d\n\n"
@@ -384,7 +444,7 @@ void Update_FirstRoom()
 					"失敗...\n"
 					"化学の本が大量に並んでいる。\n"
 					"最下段には絵本も置かれている。\n"
-					"他の本を確認してみよう。",LastDice);
+					"他の本を確認してみよう。", LastDice);
 			}
 		}
 		else {
@@ -431,7 +491,7 @@ void Update_FirstRoom()
 					"先ほど読んだ本だ。");
 			}
 		}
-		
+
 
 		if (pictureBookButton.IsClicked())
 		{
@@ -520,6 +580,9 @@ void Update_Hall()
 	{
 		ChangeRoom(
 			ROOM_LAB,
+			"広い机とキャスター付きの丸椅子がある。\n"
+			"右手には簡易棚。\n"
+			"奥には大きなシンクが設置されている。\n\n"
 			"研究室のようだ。");
 	}
 
@@ -540,8 +603,8 @@ void Update_Hall()
 			strcpy_s(message,
 				"『必ずマスクを着用』と書かれている。\n"
 				"異様な雰囲気を漂わせている。\n"
-				"\n"
-				"扉をこじ開けられそうだ...");
+				"入口付近に消火器が置かれている。\n\n"
+				"もしかすると扉をこじ開けられそうだ...");
 		}
 
 		// 開放済み
@@ -592,126 +655,388 @@ void Update_Hall()
 
 void Update_Lab()
 {
-	// 絵本
-	if (fairyBookButton.IsClicked())
+	if (player.labDeskMenu)
 	{
-		if (player.checkedFairyBook)
+		if (matchBookButton.IsClicked())
 		{
-			strcpy_s(message,
-				"もう読んだ絵本だ。");
-		}
-		else
-		{
-			strcpy_s(message,
-				"『マッチ売りの少女』の絵本だ。");
+			player.checkedMatchBook = true;
 
-			player.checkedFairyBook = true;
-			player.readFairyBook = true;
+			if (!player.foundBurnMark)
+			{
+				if (SkillCheck(player.insight))
+				{
+					player.foundBurnMark = true;
+
+					sprintf_s(message,
+						"洞察判定\n"
+						"D6 → %d\n\n"
+						"成功！\n"
+						"『マッチ売りの少女』だ。\n"
+						"何度も読まれた形跡がある。\n\n"
+						"汚れの一部は焦げ跡のようだ。",
+						LastDice);
+
+					player.checkedMatchBook = true;
+				}
+				else
+				{
+					sprintf_s(message,
+						"洞察判定\n"
+						"D6 → %d\n\n"
+						"失敗...\n"
+						"何かの絵本だ。\n"
+						"何度も読まれた形跡がある。",
+						LastDice);
+				}
+			}
+			else
+			{
+				strcpy_s(message,
+					"もう確認した。");
+			}
+		}
+
+		if (NoteBookButton.IsClicked())
+		{
+
+			if (!player.readObserveDetail)
+			{
+				player.readObserveDetail = true;
+
+				if (SkillCheck(player.insight))
+				{
+					sprintf_s(message,
+						"洞察判定\n"
+						"D6 → %d\n\n"
+						"成功！\n"
+						"観察記録だ。\n\n"
+						"対象『15』は水を浴びせると\n"
+						"鎮静化するらしい。\n\n",
+						LastDice);
+
+					player.checkedNotebook = true;
+				}
+				else
+				{
+					sprintf_s(message,
+						"洞察判定\n"
+						"D6 → %d\n\n"
+						"失敗...\n"
+						"観察記録だ。",
+						LastDice);
+				}
+			}
+			else
+			{
+				strcpy_s(message,
+					"観察記録だ。");
+			}
+		}
+
+		if (DeskbackButton.IsClicked())
+		{
+			player.labDeskMenu = false;
+
+			strcpy_s(message,
+				"机から離れた。");
 		}
 	}
+	else {
 
-	// 防毒マスク
-	if (maskButton.IsClicked())
-	{
-		if (player.hasMask)
+		if (labDeskButton.IsClicked())
 		{
 			strcpy_s(message,
-				"もう持って行った。");
-		}
-		else
-		{
-			player.hasMask = true;
-			
-			strcpy_s(message,
-				"防毒マスクを手に入れた。");
-		}
-	}
+				"雑然とした机だ。\n"
+				"絵本とノートが置かれている。\n"
+				"\n"
+				"調べてみよう。");
 
-	// ホース
-	if (hoseButton.IsClicked())
-	{
-		if (player.hasHose)
+			player.labDeskMenu = true;
+			player.labcheckeddeskall = true;
+		}
+
+		// 防毒マスク
+		if (labShelfButton.IsClicked())
+		{
+			if (!player.checkedShelf)
+			{
+				player.checkedShelf = true;
+
+				if (!player.hasMask)
+				{
+					player.hasMask = true;
+				}
+
+				if (SkillCheck(player.insight))
+				{
+					player.checkedCopyPaper = true;
+
+					sprintf_s(message,
+						"洞察判定\n"
+						"D6 → %d\n\n"
+						"成功！\n"
+						"防毒マスクを発見した。\n\n"
+						"コピー用紙の束に紛れて\n"
+						"文字の書かれた紙を見つけた。\n",
+						LastDice);
+				}
+				else
+				{
+					sprintf_s(message,
+						"洞察判定\n"
+						"D6 → %d\n\n"
+						"失敗...\n"
+						"防毒マスクを発見した。",
+						LastDice);
+				}
+			}
+			else
+			{
+				strcpy_s(message,
+					"もう十分調べた。");
+			}
+		}
+
+		// ホース
+		if (hoseButton.IsClicked())
+		{
+			if (player.checkedSink)
+			{
+				strcpy_s(message,
+					"もう確認した。");
+			}
+			else
+			{
+				player.checkedSink = true;
+
+				strcpy_s(message,
+					"ステンレスのシンク。蛇口をひねれば水が出る。\n"
+					"近くには、長いホースがとぐろを巻いた状態で落ちている。");
+			}
+		}
+
+		// 廊下へ戻る
+		if (backHallFromLabButton.IsClicked())
 		{
 			strcpy_s(message,
-				"もう持って行った。");
-		}
-		else
-		{
-			player.hasHose = true;
-			
-			strcpy_s(message,
-				"長いホースが置かれている。");
-		}
-	}
+				"廊下に戻ろう。\n\n");
 
-	// 廊下へ戻る
-	if (backHallFromLabButton.IsClicked())
-	{
-		player.currentRoom = ROOM_HALL;
-
-		strcpy_s(message,
-			"廊下へ戻った。");
+			ChangeRoom(
+				ROOM_HALL,
+				message);
+		}
 	}
 }
 
 void Update_Storage()
 {
-	// 日記
 	if (diaryButton.IsClicked())
 	{
-		if (player.checkedDiary)
-		{
-			strcpy_s(message,
-				"もう読んでいる。");
-		}
-		else
+		if (!player.checkedDiary)
 		{
 			player.checkedDiary = true;
-			player.readDiary = true;
+
+			int damage = RollDice(2);
+
+			player.hp -= damage;
+
+			if (player.hp < 0)
+			{
+				player.hp = 0;
+			}
+
+			if (SkillCheck(player.insight))
+			{
+				player.foundLetter = true;
+
+				sprintf_s(message,
+					"洞察判定\n"
+					"D6 → %d\n"
+					"成功！\n"
+					"古い日記\n"
+					"島で行われた儀式の日、\n"
+					"発光する異形の存在が現れた。"
+					"島民はリン中毒で死亡。\n"
+					"生存者は教師と加古のみ。"
+					"加古は異形の子を出産し死亡。\n"
+					"教師はその子を『15』と名付けた。\n"
+					"ショッキングな内容だ...\n"
+					"HP-%d",
+					damage,
+					LastDice);
+			}
+			else
+			{
+				sprintf_s(message,
+					"洞察判定\n"
+					"D6 → %d\n"
+					"失敗...\n"
+					"あまり資料は見つからなかった。",
+					LastDice);
+			}
+		}
+		else
+		{
+			strcpy_s(message,
+				"もう十分調べた。");
 		}
 	}
 
-	// PAM注射
 	if (pamButton.IsClicked())
 	{
-		if (player.hasPAM)
-		{
-			strcpy_s(message,
-				"もう空になっている。");
-		}
-		else
+		if (!player.hasPAM)
 		{
 			player.hasPAM = true;
-			
-			strcpy_s(message,
-				"PAM注射を見つけた。");
-		}
-	}
 
-	// 消火資料
-	if (fireDocButton.IsClicked())
-	{
-		if (player.checkedFireDoc)
-		{
-			strcpy_s(message,
-				"もう読んでいる。");
+			if (SkillCheck(player.insight))
+			{
+				player.hp += 3;
+
+				sprintf_s(message,
+					"洞察判定\n"
+					"D6 → %d\n\n"
+					"成功！\n"
+					"『PAM』と書かれたケースを発見した。\n"
+					"注射器も置かれている。\n"
+					"使用し、HPが 3 回復した！",
+					LastDice);
+			}
+			else
+			{
+				sprintf_s(message,
+					"洞察判定\n"
+					"D6 → %d\n\n"
+					"失敗...\n"
+					"何かの薬のようなものがたくさん置かれている\n"
+					"なんの薬かはわからない。",
+					LastDice);
+			}
 		}
 		else
 		{
-			player.checkedFireDoc = true;
-			player.readFireDoc = true;
 			strcpy_s(message,
-				"消火についての資料がある。");
+				"もう確認した。");
 		}
 	}
 
+	if (fireDocButton.IsClicked())
+	{
+		if (!player.checkedFireDoc)
+		{
+			player.checkedFireDoc = true;
+
+			if (SkillCheck(player.knw))
+			{
+				player.readFireDoc = true;
+				sprintf_s(message,
+					"知識判定\n"
+					"D6 → %d\n\n"
+					"成功！\n\n"
+					"『消火について』という資料だ。\n\n"
+					"危険物火災の項目には\n"
+					"リンによる火災についての\n"
+					"記述がある。",
+					LastDice);
+			}
+			else
+			{
+				sprintf_s(message,
+					"知識判定\n"
+					"D6 → %d\n\n"
+					"失敗...\n\n"
+					"消火に関する資料だが\n"
+					"必要な情報は見つからなかった。",
+					LastDice);
+			}
+		}
+		else
+		{
+			strcpy_s(message,
+				"『消火について』という資料だ。");
+		}
+	}
+	
 	// 廊下へ戻る
 	if (backHallFromStorageButton.IsClicked())
 	{
+		strcpy_s(message,
+			"廊下に戻ろう。\n\n");
 
 		ChangeRoom(
 			ROOM_HALL,
-			"廊下へ戻った。");
+			message);
+	}
+}
+
+void UpdateMemo()
+{
+	if (!showMemo)
+	{
+		return;
+	}
+
+	if (showMemoDetail)
+	{
+		if (memoBackButton.IsClicked())
+		{
+			showMemoDetail = false;
+			currentMemo = MEMO_NONE;
+		}
+
+		return;
+	}
+
+	if (player.readDoc1 &&
+		memoDoc1Button.IsClicked())
+	{
+		currentMemo = MEMO_DOC1;
+		showMemoDetail = true;
+	}
+
+	if (player.readDoc2 &&
+		memoDoc2Button.IsClicked())
+	{
+		currentMemo = MEMO_DOC2;
+		showMemoDetail = true;
+	}
+
+	if (player.readDoc3 &&
+		memoDoc3Button.IsClicked())
+	{
+		currentMemo = MEMO_DOC3;
+		showMemoDetail = true;
+	}
+
+	if (player.checkedMatchBook &&
+		memoBookButton.IsClicked())
+	{
+		currentMemo = MEMO_FAIRYBOOK;
+		showMemoDetail = true;
+	}
+
+	if (player.checkedNotebook &&
+		memoObserveNoteButton.IsClicked())
+	{
+		currentMemo = MEMO_OBSERVE_NOTE;
+		showMemoDetail = true;
+	}
+
+	if (player.checkedCopyPaper &&
+		memoCopyPaperButton.IsClicked()) {
+		currentMemo = MEMO_COPY_PAPER;
+		showMemoDetail = true;
+	}
+
+	if (player.foundLetter &&
+		memoLetterButton.IsClicked()) {
+		currentMemo = MEMO_DIARY;
+		showMemoDetail = true;
+	}
+
+	if (player.readFireDoc &&
+		memoFireDocButton.IsClicked()) {
+		currentMemo = MEMO_FIREDOC;
+		showMemoDetail = true;
 	}
 }
 
@@ -722,7 +1047,7 @@ void UpdateExploreScene()
 		showMemo = !showMemo;
 	}
 
-	if (showMemo)
+	if (showMemo || isPause)
 	{
 		return;
 	}
@@ -790,6 +1115,187 @@ void DrawRoomName()
 		GetColor(255, 255, 255));
 }
 
+void DrawMemoDetail()
+{
+	DrawBox(
+		400, 150,
+		1520, 930,
+		GetColor(10, 10, 10),
+		TRUE);
+
+	DrawBox(
+		400, 150,
+		1520, 930,
+		GetColor(255, 255, 255),
+		FALSE);
+
+	switch (currentMemo)
+	{
+	case MEMO_DOC1:
+
+		DrawString(
+			450,
+			220,
+			"リンは『賢者の石』と呼ばれていた。\n\n"
+			"錬金術師ヘンニヒ・ブラントは、\n"
+			"金を生み出す研究の最中に\n"
+			"リンを発見した。\n\n"
+			"暗闇で青白く光る性質から、\n"
+			"彼はこれを『賢者の石』だと\n"
+			"考えたという。\n\n"
+			"この光は腐敗した生物からも\n"
+			"発生することがあり、\n"
+			"人魂の正体とも言われている。",
+			GetColor(255, 255, 255));
+
+		break;
+
+	case MEMO_DOC2:
+
+		DrawString(
+			450,
+			220,
+			"世界各地で『燃える石』と\n"
+			"呼ばれる現象が報告されている。\n\n"
+			"その多くは白リンや黄リンが\n"
+			"原因とされている。\n\n"
+			"これらは30〜60℃程度で\n"
+			"発火するため、暑い日には\n"
+			"自然発火する危険がある。\n\n"
+			"そのため通常は空気に触れない\n"
+			"よう、水中で保管される。",
+			GetColor(255, 255, 255));
+
+		break;
+
+	case MEMO_DOC3:
+
+		DrawString(
+			450,
+			220,
+			"現在のマッチには赤リンが\n"
+			"使われている。\n\n"
+			"しかし昔は黄リンが原料として\n"
+			"使用されていた。\n\n"
+			"黄リンは猛毒であり、\n"
+			"工場労働者の健康被害が\n"
+			"社会問題となった。\n\n"
+			"童話『マッチ売りの少女』で\n"
+			"描かれた幻覚も、黄リンの\n"
+			"影響だった可能性があるという。\n\n"
+			"黄リンは独特なニンニク臭を\n"
+			"放つことで知られている。",
+			GetColor(255, 255, 255));
+
+		break;
+
+	case MEMO_FAIRYBOOK:
+
+		DrawString(
+			450,
+			180,
+			"【マッチ売りの少女】\n\n"
+			"寒い冬の日、少女は街でマッチを売っていた。\n"
+			"しかし誰も買ってくれなかった。\n\n"
+			"少女は寒さに耐えられずマッチを擦る。\n"
+			"すると暖かなストーブが現れた。\n"
+			"しかし火が消えるとストーブも消えた。\n\n"
+			"次にマッチを擦ると豪華なごちそうが現れた。\n"
+			"しかしそれも消えてしまった。\n\n"
+			"さらにクリスマスツリーが現れたが、\n"
+			"やがて消えてしまった。\n\n"
+			"最後に亡くなった祖母が現れ、\n"
+			"少女を優しく抱きしめた。\n\n"
+			"翌朝、少女は微笑みながら\n"
+			"凍死しているのが発見された。",
+			GetColor(255, 255, 255));
+
+		break;
+
+	case MEMO_OBSERVE_NOTE:
+
+		DrawString(
+			450,
+			220,
+			"【観察記録1】\n\n"
+			"対象『15』は毒性の蒸気を放つ。\n"
+			"接触には防毒マスクが必須。\n\n"
+			"身体能力は日々成長しており、\n"
+			"高温のリンを含む体液を\n"
+			"撒き散らすようになった。\n\n"
+			"精神が不安定になると暴走するが、\n"
+			"水を浴びせることで\n"
+			"鎮静化できるらしい。\n\n"
+			"『マッチ売りの少女』を\n"
+			"異常なほど気に入っている。\n\n"
+			"研究者の名前は\n"
+			"『左部』のようだ。",
+			GetColor(255, 255, 255));
+
+		break;
+	case MEMO_COPY_PAPER:
+
+		DrawString(
+			450,
+			220,
+			"【コピー用紙】\n\n"
+			"誰もいない、なにもない島だ。\n"
+			"こんな島に誰が戻る。\n\n"
+			"15は水の中では活動できない。\n"
+			"本土へ向かうことはありえない。\n\n"
+			"被害がでることもないだろう。",
+			GetColor(255, 255, 255));
+
+		break;
+
+	case MEMO_DIARY:
+
+		DrawString(
+			450,
+			220,
+			"【古い日記】\n\n"
+			"過疎化により島の住民は減少し、\n"
+			"最後の生徒も島を去った。\n\n"
+			"その後の儀式の日、天から光が降り、\n"
+			"発光する異形の存在が現れた。\n\n"
+			"強いニンニク臭と共に島民は倒れ、\n"
+			"多くがリン中毒で死亡した。\n\n"
+			"生き残ったのは教師と加古のみ。\n"
+			"加古は異形の子を身籠り、\n"
+			"出産後に死亡した。\n\n"
+			"産まれた子は人間に似ていたが、\n"
+			"身体が流動し続ける異形だった。\n\n"
+			"教師はその存在を研究し、\n"
+			"リンにちなみ『15』と名付けた。",
+			GetColor(255, 255, 255));
+
+		break;
+
+	case MEMO_FIREDOC:
+		DrawString(
+			450,
+			220,
+			"【消火資料】\n\n"
+			"火災は原因によって\n"
+			"消火方法が異なる。\n\n"
+			"危険物火災の場合、\n"
+			"水と反応する物質かを\n"
+			"確認する必要がある。\n\n"
+			"リンによる火災は\n"
+			"水や消火剤で消火可能。\n\n"
+			"ただし棒状ではなく\n"
+			"霧状に散布すること。\n\n"
+			"危険物が飛散すると\n"
+			"被害が拡大する。",
+			GetColor(255, 255, 255));
+
+		break;
+	}
+
+	memoBackButton.Draw(false);
+	memoBackButton.DrawLabel("戻る");
+}
+
 void DrawMemo()
 {
 	DrawBox(
@@ -821,118 +1327,76 @@ void DrawMemo()
 		"【情報】",
 		GetColor(255, 255, 0));
 
-	y += 60;
-
-	if (player.readPhosphorus)
+	if (player.readDoc1)
 	{
 		DrawString(
 			320,
-			y,
-			"・リンについて",
+			300,
+			"・リンは『賢者の石』",
 			GetColor(255, 255, 255));
-
-		y += 40;
 	}
 
-	if (player.readFairyBook)
+	if (player.readDoc2)
 	{
 		DrawString(
 			320,
-			y,
+			340,
+			"・燃える石",
+			GetColor(255, 255, 255));
+	}
+
+	if (player.readDoc3)
+	{
+		DrawString(
+			320,
+			380,
 			"・マッチ売りの少女",
 			GetColor(255, 255, 255));
-
-		y += 40;
 	}
 
-	if (player.readDiary)
+	if (player.checkedMatchBook)
 	{
 		DrawString(
 			320,
-			y,
+			420,
+			"・マッチ売りの少女「原文」",
+			GetColor(255, 255, 255));
+	}
+
+	if (player.checkedNotebook)
+	{
+		DrawString(
+			320,
+			460,
+			"・観察記録1",
+			GetColor(255, 255, 255));
+	}
+
+	if (player.checkedCopyPaper)
+	{
+		DrawString(
+			320,
+			500,
+			"・コピー用紙",
+			GetColor(255, 255, 255));
+	}
+
+	if (player.foundLetter)
+	{
+		DrawString(
+			320,
+			540,
 			"・古い日記",
 			GetColor(255, 255, 255));
-
-		y += 40;
 	}
 
 	if (player.readFireDoc)
 	{
 		DrawString(
 			320,
-			y,
-			"・消火資料",
+			580,
+			"・消化について",
 			GetColor(255, 255, 255));
-
-		y += 40;
-	}
-	y += 50;
-
-	DrawString(
-		300,
-		y,
-		"【アイテム】",
-		GetColor(0, 255, 255));
-
-	y += 60;
-
-	if (player.hasMask)
-	{
-		DrawString(
-			320,
-			y,
-			"・防毒マスク",
-			GetColor(255, 255, 255));
-
-		y += 40;
-	}
-
-	if (player.hasHose)
-	{
-		DrawString(
-			320,
-			y,
-			"・ホース",
-			GetColor(255, 255, 255));
-
-		y += 40;
-	}
-
-	if (player.hasPAM)
-	{
-		DrawString(
-			320,
-			y,
-			"・PAM注射",
-			GetColor(255, 255, 255));
-
-		y += 40;
-	}
-
-	if (showMemo)
-	{
-		if (IsKeyPressedOnce(KEY_INPUT_UP))
-		{
-			memoSelect--;
-		}
-
-		if (IsKeyPressedOnce(KEY_INPUT_DOWN))
-		{
-			memoSelect++;
-		}
-
-		if (IsKeyPressedOnce(KEY_INPUT_RETURN))
-		{
-			showMemoDetail = true;
-		}
-
-		if (IsKeyPressedOnce(KEY_INPUT_ESCAPE))
-		{
-			showMemo = false;
-			showMemoDetail = false;
-		}
-
-		return;
 	}
 }
 
@@ -953,7 +1417,7 @@ void DrawExploreScene()
 
 	DrawMessageBox();
 
-	if (!showMemo) {
+	if (!showMemo && !isPause) {
 		switch (player.currentRoom)
 		{
 		case ROOM_FIRST:
@@ -962,7 +1426,7 @@ void DrawExploreScene()
 				chemistryBookButton.DrawArea();
 				pictureBookButton.DrawArea();
 				closeBookshelfButton.DrawArea();
-				
+
 				chemistryBookButton.DrawLabel("化学の本");
 				pictureBookButton.DrawLabel("絵本");
 				closeBookshelfButton.DrawLabel("本棚から離れる");
@@ -983,6 +1447,7 @@ void DrawExploreScene()
 
 		case ROOM_HALL:
 
+
 			labDoorButton.DrawArea();
 			storageDoorButton.DrawArea();
 			noteButton.DrawArea();
@@ -991,28 +1456,41 @@ void DrawExploreScene()
 			storageDoorButton.DrawLabel("倉庫");
 			noteButton.DrawLabel("張り紙のある部屋");
 
+
 			break;
 		case ROOM_LAB:
-			fairyBookButton.DrawArea();
-			fairyBookButton.DrawLabel("絵本");
-			maskButton.DrawArea();
-			maskButton.DrawLabel("防毒マスク");
-			hoseButton.DrawArea();
-			hoseButton.DrawLabel("ホース");
-			backHallFromLabButton.DrawArea();
-			backHallFromLabButton.DrawLabel("廊下へ戻る");
+			if (player.labDeskMenu) {
+				NoteBookButton.DrawArea();
+				matchBookButton.DrawArea();
+				DeskbackButton.DrawArea();
+
+				NoteBookButton.DrawLabel("とある観察記録");
+				matchBookButton.DrawLabel("絵本");
+				DeskbackButton.DrawLabel("戻る");
+
+			}
+			else {
+
+				labDeskButton.DrawArea();
+				labDeskButton.DrawLabel("机");
+				labShelfButton.DrawArea();
+				labShelfButton.DrawLabel("棚");
+				hoseButton.DrawArea();
+				hoseButton.DrawLabel("シンク");
+				backHallFromLabButton.DrawArea();
+				backHallFromLabButton.DrawLabel("廊下へ戻る");
+			}
 
 			break;
 
 		case ROOM_STORAGE:
 
-
 			diaryButton.DrawArea();
-			diaryButton.DrawLabel("古い日記");
+			diaryButton.DrawLabel("左の棚");
 			pamButton.DrawArea();
-			pamButton.DrawLabel("PAM注射");
+			pamButton.DrawLabel("右の棚");
 			fireDocButton.DrawArea();
-			fireDocButton.DrawLabel("消火資料");
+			fireDocButton.DrawLabel("真ん中の棚");
 			backHallFromStorageButton.DrawArea();
 			backHallFromStorageButton.DrawLabel("廊下へ戻る");
 
@@ -1020,8 +1498,13 @@ void DrawExploreScene()
 		}
 	}
 
-	if (showMemo)
+	if (showMemo && !isPause)
 	{
 		DrawMemo();
+		UpdateMemo();
+		if (showMemoDetail)
+		{
+			DrawMemoDetail();
+		}
 	}
 }

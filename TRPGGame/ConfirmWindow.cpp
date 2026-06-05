@@ -48,10 +48,10 @@ void UpdateConfirm()
             SaveGame(currentSlot);
             SaveSettings();
             currentScene = SCENE_TITLE;
+            isPause = false;
             break;
         }
         showConfirm = false;
-
         confirmType = CONFIRM_NONE;
     }
 

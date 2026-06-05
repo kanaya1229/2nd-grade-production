@@ -34,10 +34,6 @@ PlayerData CreateDefaultPlayer()
 
 	// ’Tõ
 	p.currentRoom = ROOM_FIRST;
-
-	p.hasMask = false;
-	p.hasHose = false;
-	p.hasPAM = false;
 	// ƒxƒbƒg
 	p.checkedBed = false;
 	// Š÷
@@ -54,21 +50,28 @@ PlayerData CreateDefaultPlayer()
 	p.foundGap = false;
 	p.foundMissingBook = false;
 	p.bookshelfMenu = false;
-
-	p.checkedFairyBook = false;
-	
-	p.checkedDiary = false;
-	p.checkedFireDoc = false;
-
+	// Œ¤‹†Š
 	p.checkedLab = false;
-	p.checkedStorage = false;
+	p.readObserveDetail = false;
+	p.labcheckeddeskall = false;
+	p.hasMask = false;
+	p.checkedLabDesk = false;
+	p.checkedNotebook = false;
+	p.checkedMatchBook = false;
+	p.foundBurnMark = false;
+	p.checkedShelf = false;
+	p.checkedCopyPaper = false;
+	p.labDeskMenu = false;
+	p.checkedSink = false;
 
-	p.finalEventStarted = false;
 
-	p.readPhosphorus = false;
-	p.readFairyBook = false;
+	
+	p.hasPAM = false;
+	p.checkedDiary = false;
 	p.readDiary = false;
 	p.readFireDoc = false;
+	p.checkedFireDoc = false;
+
 
 	p.bossDoorReady = false;
 	p.canEnterBossRoom = false;

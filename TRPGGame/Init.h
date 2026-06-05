@@ -43,11 +43,7 @@ struct PlayerData
 	bool storyCleared;  // 冒頭のストーリークリア判定
 
 	RoomType currentRoom;
-
-	bool hasMask;
-	bool hasHose;
-	bool hasPAM;
-
+	
 	// ベット
 	bool checkedBed;
 
@@ -67,20 +63,27 @@ struct PlayerData
 	bool foundMissingBook;
 	bool bookshelfMenu;
 
-	bool checkedFairyBook;
-
-	bool checkedDiary;
-	bool checkedFireDoc;
-
+	// 研究室
 	bool checkedLab;
-	bool checkedStorage;
-
-	bool finalEventStarted;
-
-	bool readPhosphorus;
-	bool readFairyBook;
+	bool labcheckeddeskall;
+	bool hasMask;
+	bool readObserveDetail;
+	bool checkedLabDesk;
+	bool checkedNotebook;
+	bool checkedMatchBook;
+	bool foundBurnMark;
+	bool checkedShelf;
+	bool checkedCopyPaper;
+	bool checkedSink;
+	bool labDeskMenu;
+	// 倉庫
+	bool hasPAM;
+	bool checkedDiary;
 	bool readDiary;
+	bool checkedFireDoc;
 	bool readFireDoc;
+	bool foundLetter;
+	bool foundPamMissing;
 
 	bool bossDoorReady;
 	bool canEnterBossRoom;
