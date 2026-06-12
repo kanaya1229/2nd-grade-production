@@ -19,6 +19,15 @@ enum MemoType
     MEMO_FIREDOC
 };
 
+enum PlayerFace
+{
+    FACE_NORMAL,
+    FACE_THINK,
+    FACE_DAMAGE
+};
+
+extern PlayerFace playerFace;
+
 struct Memo
 {
     char title[64];
@@ -64,6 +73,10 @@ extern Button memoBookButton;
 extern MemoType currentMemo;
 extern bool showMemo;
 
+void DrawPlayer();
+void UpdatePlayerFace();
+bool SkillCheck(int skill);
+int RollDice(int max);
 void InitExploreScene();
 void UpdateExploreScene();
 void DrawExploreScene();

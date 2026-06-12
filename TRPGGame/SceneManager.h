@@ -12,6 +12,8 @@ enum Scene
     SCENE_STARTGAME,
     SCENE_GAMEIN,
     SCENE_GAMEFIGHT,
+    SCENE_ENDING,
+    SCENE_END
 };
 // セーブ or ロード
 enum SaveMode
