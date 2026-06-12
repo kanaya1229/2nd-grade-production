@@ -99,7 +99,7 @@ void UpdatePrologueScene()
 	static bool oldClick = false;
 	static bool oldPush = false;
 
-	bool nowClick = (IsMousePressedOnce(MOUSE_INPUT_LEFT));
+	bool nowClick = (IsKeyPressedOnce(MOUSE_INPUT_LEFT));
 	bool nowPush = (IsKeyPressedOnce(KEY_INPUT_RETURN));
 
 	// ÇªÇÍÇºÇÍÇÃóßÇøè„Ç™ÇËîªíË

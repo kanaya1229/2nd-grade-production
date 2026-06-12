@@ -11,11 +11,6 @@
 #include "StoryScene.h"
 #include "Pause.h"
 #include "ExploreScene.h"
-#include "BattleScene.h"
-#include "EndingScene.h"
-#include "EndCredit.h"
-#include "DiceSystem.h"
-#include "BGM.h"
 
 #include <time.h>
 
@@ -32,10 +27,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     InitTitleScene();
     InitStoryScene();
     InitExploreScene();
-    InItFinalBattle();
-    InitEndCredit();
-    InitDiceUI();
-    InitSound();
     srand((unsigned int)time(NULL));
     nameFont = CreateFontToHandle(
         NULL,
@@ -50,7 +41,10 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
     while (ProcessMessage() == 0)
     {
-        UpdateSoundVolume();
+        // サウンド設定
+        ChangeVolumeSoundMem(masterVolume, masterSoundHandle);
+        ChangeVolumeSoundMem(bgmVolume, bgmSoundHandle);
+        ChangeVolumeSoundMem(seVolume, seSoundHandle);
 
         // デバックキーと条件でゲーム終了
         if ((GameEnd) || CheckHitKey(KEY_INPUT_RETURN) &&
@@ -69,8 +63,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         switch (currentScene)
         {
         case SCENE_TITLE:
-
-            PlayBGM(bgmTitle);
             UpdateTitleScene();
             DrawTitleScene();
            
@@ -99,29 +91,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
         case SCENE_GAMEIN:
 
-            PlayBGM(bgmExplore);
             UpdateExploreScene();
             DrawExploreScene();
-            break;
-
-        case SCENE_GAMEFIGHT:
-
-            PlayBGM(bgmBattle);
-            Draw_FinalBattle();
-            Update_FinalBattle();
-            break;
-        case SCENE_ENDING:
-            UpdateEnding();
-            DrawEnding();
-            break;
-        case SCENE_END:
-            UpdateEndCredit();
-            DrawEndCredit();
-
-            if (IsKeyPressedOnce(KEY_INPUT_RETURN))
-            {
-                currentScene = SCENE_TITLE;
-            }
             break;
         }
 

@@ -5,8 +5,6 @@
 #include < stdlib.h >
 #include "SceneManager.h"
 #include "Pause.h"
-#include "DiceSystem.h"
-#include "BGM.h"
 
 /// 寝室
 // ベッド
@@ -167,14 +165,6 @@ int LastDice = 0;
 bool showDice = false;
 bool firstRoomExitReady = false;
 
-int DiceImage[6];
-int faceTimer = 0;
-
-PlayerFace playerFace;
-int PlayerNormalImage;
-int PlayerThinkImage;
-int PlayerDamageImage;
-
 Memo memo[50];
 
 MemoType currentMemo = MEMO_NONE;
@@ -222,12 +212,6 @@ void ChangeRoom(RoomType room, const char* text)
 
 	DamagePlayer(damage);
 
-	PlaySoundMem(
-		sePoison,
-		DX_PLAYTYPE_BACK);
-
-	playerFace = FACE_DAMAGE;
-
 	player.currentRoom = room;
 
 	sprintf_s(message,
@@ -254,89 +238,6 @@ void InitExploreScene()
 	roomBG[ROOM_LAB] = LoadGraph("Image\\lab.png");
 	roomBG[ROOM_STORAGE] = LoadGraph("Image\\storage.png");
 
-	DiceImage[0] = LoadGraph("Image\\Dice1.png");
-	DiceImage[1] = LoadGraph("Image\\Dice2.png");
-	DiceImage[2] = LoadGraph("Image\\Dice3.png");
-	DiceImage[3] = LoadGraph("Image\\Dice4.png");
-	DiceImage[4] = LoadGraph("Image\\Dice5.png");
-	DiceImage[5] = LoadGraph("Image\\Dice6.png");
-
-
-	PlayerNormalImage =
-		LoadGraph("Image\\main.png");
-
-	PlayerThinkImage =
-		LoadGraph("Image\\main2.png");
-
-	PlayerDamageImage =
-		LoadGraph("Image\\main3.png");
-
-}
-
-void DrawPlayer() {
-
-	DrawBox(
-		170, 10,
-		320, 160,
-		GetColor(0, 0, 0),
-		TRUE);
-
-	DrawBox(
-		170, 10,
-		320, 160,
-		GetColor(255, 255, 255),
-		FALSE);
-
-
-	if (faceTimer == 0 && playerFace != FACE_NORMAL) {
-		faceTimer = 180;
-	}
-
-	switch (playerFace)
-	{
-	case FACE_NORMAL:
-
-		DrawExtendGraph(
-			180, 20,
-			310, 150,
-			PlayerNormalImage,
-			TRUE);
-
-		break;
-
-	case FACE_THINK:
-
-		DrawExtendGraph(
-			180, 20,
-			310, 150,
-			PlayerThinkImage,
-			TRUE);
-
-		break;
-
-	case FACE_DAMAGE:
-
-		DrawExtendGraph(
-			180, 20,
-			310, 150,
-			PlayerDamageImage,
-			TRUE);
-
-		break;
-	}
-}
-
-void UpdatePlayerFace()
-{
-	if (faceTimer > 0)
-	{
-		faceTimer--;
-
-		if (faceTimer <= 0)
-		{
-			playerFace = FACE_NORMAL;
-		}
-	}
 }
 
 void Update_FirstRoom()
@@ -350,10 +251,6 @@ void Update_FirstRoom()
 
 			bool success = SkillCheck(player.insight);
 
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
-
 			if (success)
 			{
 				sprintf_s(message,
@@ -366,8 +263,6 @@ void Update_FirstRoom()
 					"台車の近くに車輪の痕がある。\n"
 					"痕は扉の前まで続いている。",
 					LastDice);
-
-				playerFace = FACE_THINK;
 			}
 			else
 			{
@@ -380,14 +275,12 @@ void Update_FirstRoom()
 					"\n"
 					"近くには台車が置かれている。",
 					LastDice);
-				playerFace = FACE_NORMAL;
 			}
 		}
 		else
 		{
 			strcpy_s(message,
 				"もうここは調べても意味がないだろう。");
-			playerFace = FACE_NORMAL;
 		}
 	}
 
@@ -403,22 +296,16 @@ void Update_FirstRoom()
 				"\n"
 				"書類を調べられそうだ。\n"
 				"クリックで最大3回まで調査できる。");
-			playerFace = FACE_THINK;
+
 			player.checkedDesk = true;
 		}
 		else
 		{
-			playerFace = FACE_THINK;
-
 
 			if (player.deskSearchCount == 3 &&
 				!player.foundLeftMemo)
 			{
 				bool success = SkillCheck(player.insight);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
 
 				if (success)
 				{
@@ -446,8 +333,6 @@ void Update_FirstRoom()
 
 			if (player.deskSearchCount >= 3)
 			{
-				playerFace = FACE_NORMAL;
-
 				strcpy_s(message,
 					"もう十分調べた。");
 				return;
@@ -456,10 +341,6 @@ void Update_FirstRoom()
 			player.deskSearchCount++;
 
 			bool success = SkillCheck(player.knw);
-
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
 
 			if (!success)
 			{
@@ -538,19 +419,11 @@ void Update_FirstRoom()
 
 	if (bookshelfButton.IsClicked())
 	{
-		playerFace = FACE_THINK;
-
 		if (!player.checkedBookshelf)
 		{
 			player.checkedBookshelf = true;
-			
-			bool success = SkillCheck(player.knw);
 
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
-
-			if (success)
+			if (SkillCheck(player.knw))
 			{
 				sprintf_s(message,
 					"知識判定\n"
@@ -575,8 +448,6 @@ void Update_FirstRoom()
 			}
 		}
 		else {
-
-			playerFace = FACE_NORMAL;
 			strcpy_s(message,
 				"本棚をまた確認しよう。");
 		}
@@ -588,19 +459,11 @@ void Update_FirstRoom()
 	{
 		if (chemistryBookButton.IsClicked())
 		{
-			playerFace = FACE_THINK;
-
 			if (!player.checkedChemBook)
 			{
 				player.checkedChemBook = true;
 
-				bool success = SkillCheck(player.knw);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
-
-				if (success)
+				if (SkillCheck(player.knw))
 				{
 					sprintf_s(message,
 						"知識判定\n"
@@ -624,8 +487,6 @@ void Update_FirstRoom()
 			}
 			else
 			{
-
-				playerFace = FACE_NORMAL;
 				strcpy_s(message,
 					"先ほど読んだ本だ。");
 			}
@@ -634,19 +495,11 @@ void Update_FirstRoom()
 
 		if (pictureBookButton.IsClicked())
 		{
-			playerFace = FACE_THINK;
-
 			if (!player.checkedPictureBook)
 			{
 				player.checkedPictureBook = true;
 
-				bool success = SkillCheck(player.insight);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
-
-				if (success)
+				if (SkillCheck(player.insight))
 				{
 					player.foundGap = true;
 
@@ -671,14 +524,7 @@ void Update_FirstRoom()
 			}
 			else if (player.foundGap && !player.foundMissingBook)
 			{
-
-				bool success = SkillCheck(player.insight);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
-
-				if (success)
+				if (SkillCheck(player.insight))
 				{
 					player.foundMissingBook = true;
 
@@ -700,7 +546,7 @@ void Update_FirstRoom()
 		if (closeBookshelfButton.IsClicked())
 		{
 			player.bookshelfMenu = false;
-			playerFace = FACE_NORMAL;
+
 			strcpy_s(message,
 				"もう見るところはないはずだろう。");
 		}
@@ -713,12 +559,13 @@ void Update_FirstRoom()
 		if (!firstRoomExitReady)
 		{
 			firstRoomExitReady = true;
-			playerFace = FACE_THINK;
+
 			strcpy_s(message,
 				"一度他の部屋の探索をする必要がありそうだ...");
 		}
 		else
 		{
+
 			firstRoomExitReady = false;
 			ChangeRoom(
 				ROOM_HALL,
@@ -743,15 +590,11 @@ void Update_Hall()
 	{
 		ChangeRoom(
 			ROOM_STORAGE,
-			"倉庫のようだ。\n"
-			"いろいろな物が置いてある。"
-			);
+			"倉庫のようだ。");
 	}
 
 	if (noteButton.IsClicked())
 	{
-		playerFace = FACE_THINK;
-
 		// 初回
 		if (!player.bossDoorReady)
 		{
@@ -768,20 +611,6 @@ void Update_Hall()
 		else if (player.canEnterBossRoom)
 		{
 			currentScene = SCENE_GAMEFIGHT;
-
-			StartFinalBattle();
-
-			static bool n = false;
-
-			if (!player.hasMask && !n) {
-
-				finalIntroState = FINAL_BATTLE;
-
-				finalBattleState = END3;
-
-				n = true;
-			}
-
 		}
 
 		// 全探索済みなら自動開放
@@ -798,10 +627,6 @@ void Update_Hall()
 		else
 		{
 			bool success = SkillCheck(player.tec);
-
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
 
 			if (success)
 			{
@@ -834,19 +659,11 @@ void Update_Lab()
 	{
 		if (matchBookButton.IsClicked())
 		{
-
-			playerFace = FACE_THINK;
 			player.checkedMatchBook = true;
 
 			if (!player.foundBurnMark)
 			{
-				bool success = SkillCheck(player.insight);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
-
-				if (success)
+				if (SkillCheck(player.insight))
 				{
 					player.foundBurnMark = true;
 
@@ -874,8 +691,6 @@ void Update_Lab()
 			}
 			else
 			{
-
-				playerFace = FACE_NORMAL;
 				strcpy_s(message,
 					"もう確認した。");
 			}
@@ -883,19 +698,12 @@ void Update_Lab()
 
 		if (NoteBookButton.IsClicked())
 		{
-			playerFace = FACE_THINK;
 
 			if (!player.readObserveDetail)
 			{
 				player.readObserveDetail = true;
 
-				bool success = SkillCheck(player.insight);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
-
-				if (success)
+				if (SkillCheck(player.insight))
 				{
 					sprintf_s(message,
 						"洞察判定\n"
@@ -920,8 +728,6 @@ void Update_Lab()
 			}
 			else
 			{
-
-				playerFace = FACE_NORMAL;
 				strcpy_s(message,
 					"観察記録だ。");
 			}
@@ -929,8 +735,6 @@ void Update_Lab()
 
 		if (DeskbackButton.IsClicked())
 		{
-
-			playerFace = FACE_NORMAL;
 			player.labDeskMenu = false;
 
 			strcpy_s(message,
@@ -941,8 +745,6 @@ void Update_Lab()
 
 		if (labDeskButton.IsClicked())
 		{
-			playerFace = FACE_THINK;
-
 			strcpy_s(message,
 				"雑然とした机だ。\n"
 				"絵本とノートが置かれている。\n"
@@ -956,8 +758,6 @@ void Update_Lab()
 		// 防毒マスク
 		if (labShelfButton.IsClicked())
 		{
-			playerFace = FACE_THINK;
-
 			if (!player.checkedShelf)
 			{
 				player.checkedShelf = true;
@@ -967,14 +767,7 @@ void Update_Lab()
 					player.hasMask = true;
 				}
 
-
-				bool success = SkillCheck(player.insight);
-
-				pendingSuccess = success;
-
-				StartDiceAnimation(LastDice);
-
-				if (success)
+				if (SkillCheck(player.insight))
 				{
 					player.checkedCopyPaper = true;
 
@@ -999,8 +792,6 @@ void Update_Lab()
 			}
 			else
 			{
-				playerFace = FACE_NORMAL;
-
 				strcpy_s(message,
 					"もう十分調べた。");
 			}
@@ -1009,12 +800,8 @@ void Update_Lab()
 		// ホース
 		if (hoseButton.IsClicked())
 		{
-			playerFace = FACE_THINK;
-
 			if (player.checkedSink)
 			{
-
-				playerFace = FACE_NORMAL;
 				strcpy_s(message,
 					"もう確認した。");
 			}
@@ -1045,8 +832,6 @@ void Update_Storage()
 {
 	if (diaryButton.IsClicked())
 	{
-		playerFace = FACE_THINK;
-
 		if (!player.checkedDiary)
 		{
 			player.checkedDiary = true;
@@ -1060,13 +845,7 @@ void Update_Storage()
 				player.hp = 0;
 			}
 
-			bool success = SkillCheck(player.insight);
-
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
-
-			if (success)
+			if (SkillCheck(player.insight))
 			{
 				player.foundLetter = true;
 
@@ -1098,8 +877,6 @@ void Update_Storage()
 		}
 		else
 		{
-			playerFace = FACE_NORMAL;
-
 			strcpy_s(message,
 				"もう十分調べた。");
 		}
@@ -1107,19 +884,11 @@ void Update_Storage()
 
 	if (pamButton.IsClicked())
 	{
-		playerFace = FACE_THINK;
-
 		if (!player.hasPAM)
 		{
 			player.hasPAM = true;
 
-			bool success = SkillCheck(player.insight);
-
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
-
-			if (success)
+			if (SkillCheck(player.insight))
 			{
 				player.hp += 3;
 
@@ -1145,8 +914,6 @@ void Update_Storage()
 		}
 		else
 		{
-			playerFace = FACE_NORMAL;
-
 			strcpy_s(message,
 				"もう確認した。");
 		}
@@ -1154,19 +921,11 @@ void Update_Storage()
 
 	if (fireDocButton.IsClicked())
 	{
-		playerFace = FACE_THINK;
-
 		if (!player.checkedFireDoc)
 		{
 			player.checkedFireDoc = true;
 
-			bool success = SkillCheck(player.insight);
-
-			pendingSuccess = success;
-
-			StartDiceAnimation(LastDice);
-
-			if (success)
+			if (SkillCheck(player.knw))
 			{
 				player.readFireDoc = true;
 				sprintf_s(message,
@@ -1192,8 +951,6 @@ void Update_Storage()
 		}
 		else
 		{
-			playerFace = FACE_NORMAL;
-
 			strcpy_s(message,
 				"『消火について』という資料だ。");
 		}
@@ -1285,9 +1042,6 @@ void UpdateMemo()
 
 void UpdateExploreScene()
 {
-
-	UpdatePlayerFace();
-
 	if (IsKeyPressedOnce(KEY_INPUT_TAB))
 	{
 		showMemo = !showMemo;
@@ -1317,24 +1071,11 @@ void UpdateExploreScene()
 		break;
 	}
 
-	UpdateDiceUI();
-
 	if (player.hp <= 0)
 	{
-		currentScene = SCENE_GAMEFIGHT;
-
-		StartFinalBattle();
-
-		static bool n = false;
-
-		if (!player.hasMask && !n) {
-
-			finalIntroState = FINAL_BATTLE;
-
-			finalBattleState = END3;
-
-			n = true;
-		}
+		strcpy_s(message,
+			"呼吸が出来ない。\n"
+			"視界が暗く閉ざされていく。");
 	}
 }
 
@@ -1669,7 +1410,6 @@ void DrawExploreScene()
 		roomBG[player.currentRoom],
 		TRUE);
 
-	DrawPlayer();
 
 	DrawRoomName();
 
@@ -1757,8 +1497,6 @@ void DrawExploreScene()
 			break;
 		}
 	}
-
-	DrawDiceUI();
 
 	if (showMemo && !isPause)
 	{

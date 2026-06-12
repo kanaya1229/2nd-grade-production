@@ -76,6 +76,8 @@ PlayerData CreateDefaultPlayer()
 	p.bossDoorReady = false;
 	p.canEnterBossRoom = false;
 
+	p.endingType = 0;
+
 	return p;
 }
 
@@ -119,21 +121,6 @@ bool IsKeyPressedOnce(int key)
 	bool pressed = (now && !oldKeys[key]);
 
 	oldKeys[key] = now;
-
-	return pressed;
-}
-
-bool IsMousePressedOnce(int button)
-{
-	static int oldMouse = 0;
-
-	int nowMouse = GetMouseInput();
-
-	bool pressed =
-		((nowMouse & button) &&
-			!(oldMouse & button));
-
-	oldMouse = nowMouse;
 
 	return pressed;
 }

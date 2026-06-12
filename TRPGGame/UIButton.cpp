@@ -1,7 +1,6 @@
 #include "UIButton.h"
 #include "DxLib.h"
 #include "ConfirmWindow.h"
-#include "BGM.h"
 
 
 Button::Button(int _x, int _y, int _w, int _h)
@@ -42,14 +41,6 @@ bool Button::IsClicked()
     }
 
     prevMouseDown = mouseDownNow;
-   
-    if (clicked) {
-        StopSoundMem(seButton);
-        PlaySoundMem(
-            seButton,
-            DX_PLAYTYPE_BACK);
-    }
-
 
     return clicked;
 }
@@ -78,6 +69,7 @@ void Button::DrawImage(int image,bool locked)
         SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
     }
 }
+
 // ’²‚×‚ç‚ê‚éêŠ‚ğŒõ‚ç‚¹‚é
 void Button::DrawArea()
 {
@@ -96,6 +88,7 @@ void Button::DrawArea()
         SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
     }
 }
+
 // ƒ‰ƒxƒ‹•\¦
 void Button::DrawLabel(const char* text)
 {

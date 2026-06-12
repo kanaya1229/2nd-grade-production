@@ -135,12 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BGM.cpp" />
     <ClCompile Include="ConfirmWindow.cpp" />
-    <ClCompile Include="EndCredit.cpp" />
-    <ClCompile Include="EndingScene.cpp" />
     <ClCompile Include="ExploreScene.cpp" />
-    <ClCompile Include="DiceSystem.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -156,10 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleScene.h" />
-    <ClInclude Include="BGM.h" />
     <ClInclude Include="ConfirmWindow.h" />
-    <ClInclude Include="EndCredit.h" />
-    <ClInclude Include="EndingScene.h" />
     <ClInclude Include="ExploreScene.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="Mouse.h" />
@@ -171,7 +164,6 @@
     <ClInclude Include="StoryScene.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="UIButton.h" />
-    <ClInclude Include="DiceSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

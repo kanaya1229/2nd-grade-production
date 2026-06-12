@@ -1,6 +1,5 @@
 #pragma once
 #include "ExploreScene.h"
-#include "BattleScene.h"
 
 
 // ゲーム終了フラグ
@@ -88,6 +87,9 @@ struct PlayerData
 
 	bool bossDoorReady;
 	bool canEnterBossRoom;
+
+	// エンディング管理
+	int endingType;
 };
 
 // ゲーム音量
@@ -108,4 +110,3 @@ void DrawNovelText(
 	int color,
 	int fontHandle);
 bool IsKeyPressedOnce(int key);
-bool IsMousePressedOnce(int button);
