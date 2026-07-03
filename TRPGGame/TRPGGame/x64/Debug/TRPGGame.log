@@ -1,0 +1,9 @@
+﻿  Mouse.cpp
+  NameScene.cpp
+C:\Users\student\source\repos\TRPGGame\NameScene.cpp(60,17): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  Pause.cpp
+  Status.cpp
+  StoryScene.cpp
+C:\Users\student\source\repos\TRPGGame\StoryScene.cpp(116,11): warning C4267: '初期化中': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  コードを生成中...
+  TRPGGame.vcxproj -> C:\Users\student\source\repos\TRPGGame\x64\Debug\TRPGGame.exe
